@@ -710,7 +710,7 @@ static void stream_HandleDrift(vlc_aout_stream *stream, vlc_tick_t drift,
     /* Resampling has been triggered earlier. This checks if it needs to be
      * increased or decreased. Resampling rate changes must be kept slow for
      * the comfort of listeners. */
-    int adj = (stream->sync.resamp_type == AOUT_RESAMPLING_UP) ? +2 : -2;
+    int adj = (stream->sync.resamp_type == AOUT_RESAMPLING_UP) ? +2 : +2;
 
     if (2 * llabs (drift) <= stream->sync.resamp_start_drift)
         /* If the drift has been reduced from more than half its initial
