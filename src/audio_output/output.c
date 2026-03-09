@@ -854,7 +854,7 @@ int aout_VolumeUpdate (audio_output_t *aout, int value, float *volp)
 
     if (vol >= 0.f)
     {
-        vol += (value * stepSize);
+        vol -= (value * stepSize);
         vol = (roundf (vol / stepSize)) * stepSize;
         vol = clampf(vol, 0.f, AOUT_VOLUME_MAX / defaultVolume);
         if (volp != NULL)

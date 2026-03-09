@@ -1632,7 +1632,7 @@ static bool UpdateCurrentPicture(vout_thread_sys_t *sys)
     vlc_clock_Unlock(sys->clock);
 
     vlc_tick_t system_prepare_current = system_swap_current - GetRenderDelay(sys);
-    if (unlikely(system_prepare_current < system_now))
+    if (unlikely(system_prepare_current > system_now))
         // the current frame is not late, we still have time to display it
         // no need to get a new picture
         return true;
